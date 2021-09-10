@@ -157,7 +157,7 @@ WHERE isim NOT LIKE '%A%';
  SELECT * FROM personel2
   WHERE maas LIKE '_____';
  
-   -- ORNEK20: 1. harfi A ve 7.harfi A olan personeli listeleyiniz.
+   -- ORNEK20: ISMI 1. harfi A ve 7.harfi A olan personeli listeleyiniz.
 
 SELECT * FROM personel2
 WHERE isim LIKE 'A_____A%';
@@ -205,7 +205,7 @@ WHERE REGEXP_LIKE(kelime, 'hi');
 SELECT * FROM kelimeler 
 WHERE REGEXP_LIKE(kelime, 'ot|at'); --| veya demek
 
--- ORNEK23: İçerisinde 'ot' veya 'at' bulunan kelimeleri buyuk kucuk harfe duyarsiz listele
+-- ORNEK23: İçerisinde 'ot' veya 'at' bulunan kelimeleri buyuk kucuk harfe duyarsiz (i) listele
 
 SELECT * FROM kelimeler 
 WHERE REGEXP_LIKE(kelime, 'ot|at', 'i'); 
@@ -227,6 +227,12 @@ WHERE REGEXP_LIKE(kelime, 't$|m$','i'); -- bitisi kastetmek icin $ isareti kulla
 
 SELECT * FROM kelimeler 
 WHERE REGEXP_LIKE(kelime, 'h[a-zA-Z0-9]t','i');
+
+-- ORNEK27: h ile başlayıp t ile biten 5 harfli kelimeleri büyük-küçük harfe
+--  dikkat etmeksizin listeleyeniz
+
+SELECT * FROM kelimeler 
+WHERE REGEXP_LIKE(kelime, 'h[a-zA-Z0-9][a-zA-Z0-9][a-zA-Z0-9]t','i');
 
 -- ORNEK28: İçinde m veya i veya e olan kelimelerin tüm bilgilerini listeleyiniz
 
