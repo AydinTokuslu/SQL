@@ -30,7 +30,8 @@ CREATE TABLE manav
     SELECT * FROM MANAV;
     
  -- ORNEK1: kisi ismine göre satılan toplam meyve miktarlarını gösteren sorguyu
- -- yazınız. ali=>5+2+2+2 sum= meyve sayılarını toplucak  
+ -- yazınız. ali=>5+2+2+2 sum= meyve sayılarını toplucak    -- veli 9
+                                                            -- ayse 10
  
  SELECT isim, SUM(urun_miktari) toplam_urun FROM manav
  GROUP BY isim; -- isim isim grupla, her ismi bir kere yaz, 
@@ -38,9 +39,11 @@ CREATE TABLE manav
  
 -- ORNEK2: satılan meyve türüne (urun_adi) göre urun alan kişi sayısını gösteren
 --  sorguyu yazınız. NULL olarak girilen meyveyi listelemesin.count= elma alan kişileri sayacak
+                            -- elma 4
+                            -- armut 3
 -----------------------------
 
-SELECT urun_adi, COUNT (isim) FROM manav
+SELECT urun_adi, COUNT (isim) kisi_sayisi FROM manav
 WHERE urun_adi IS NOT NULL
 GROUP BY urun_adi;
 
